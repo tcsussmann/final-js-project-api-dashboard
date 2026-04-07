@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Dashboard Project</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <h1 class="main-title">JavaScript API Dashboard</h1>
+
+
+
+  <div class="grid-container">
+    <!-- 1. Dog Image -->
+    <section class="grid-item" id="dog-api">
+      <h2>🐶 Dog Image</h2>
+      <button onclick="getDogImage()">Show a random dog picture</button>
+      <div class="output" id="dog-output"></div>
+    </section>
+
+    <!-- 2. Cat Image -->
+    <section class="grid-item" id="cat-api">
+      <h2>🐱 Cat Image</h2>
+      <button onclick="getCatImage()">Show a random cat picture</button>
+      <div class="output" id="cat-output"></div>
+    </section>
+
+    <!-- 3. Weather -->
+    <section class="grid-item" id="weather-api">
+      <h2>🌤️ Weather</h2>
+      <button onclick="getWeather()">Show temperature for a city</button>
+      <div class="output" id="weather-output"></div>
+    </section>
+
+    <!-- 4. Currency -->
+    <section class="grid-item" id="currency-api">
+      <h2>💱 Currency</h2>
+      <button onclick="getExchangeRates()">USD to EUR exchange rate</button>
+      <div class="output" id="currency-output"></div>
+    </section>
+
+    <!-- 5. Movies -->
+    <section class="grid-item" id="movies-api">
+      <h2>🎬 Movies</h2>
+      <button onclick="getMovies()">Display top trending movies</button>
+      <div class="output" id="movies-output"></div>
+    </section>
+
+    <!-- 6. GitHub User -->
+    <section class="grid-item" id="github-api">
+      <h2>🧑‍💻 GitHub User</h2>
+      <input type="text" id="github-username" placeholder="Enter GitHub username" style="margin-bottom:0.5em;" />
+      <button onclick="getGitHubUser()">Show profile of a user</button>
+      <div class="output" id="github-output"></div>
+    </section>
+
+    <!-- 7. Joke -->
+    <section class="grid-item" id="joke-api">
+      <h2>😂 Joke</h2>
+      <button onclick="getJoke()">Display a random joke</button>
+      <div class="output" id="joke-output"></div>
+    </section>
+
+    <!-- 8. API of Your Choice -->
+    <section class="grid-item" id="public-api">
+      <h2>📚 API of Your Choice</h2>
+      <button onclick="getPublicApiInfo()">Show any API</button>
+      <div class="output" id="publicapi-output"></div>
+    </section>
+
+    <!-- 9. Random Welder (custom) -->
+    <section class="grid-item" id="welder-api">
+      <h2>🛠️ Random Welder</h2>
+      <button onclick="getWelder()">Get Welder</button>
+      <div class="output" id="welder-output"></div>
+    </section>
+
+    <!-- 10. Custom: Company Valuations -->
+    <section class="grid-item" id="valuation-api">
+      <h2>💹 Evaluate Company</h2>
+      <button onclick="getCompanyValuations()">Show Valuations</button>
+      <div class="output" id="valuation-output"></div>
+    </section>
+
+    <!-- 11. Custom: US Military Actions -->
+    <section class="grid-item" id="us-military-actions-api">
+      <h2>🪖 Interactions</h2>
+      <button onclick="getUSMilitaryActions()">Show US Military Actions</button>
+      <div class="output" id="us-military-actions-output" style="max-height:300px;overflow:auto;"></div>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
