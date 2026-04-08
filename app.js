@@ -94,35 +94,43 @@ function getWelder() {
 
 // Fetch and display a random public API info
 function getPublicApiInfo() {
-    const output = document.getElementById('publicapi-output');
-    output.innerHTML = 'Loading...';
-    // Use AllOrigins CORS proxy
-    fetch('https://api.allorigins.win/get?url=' + encodeURIComponent('https://api.publicapis.org/entries'))
-        .then(response => response.json())
-        .then(data => {
-            // Parse the contents property
-            if (data && data.contents) {
-                const parsed = JSON.parse(data.contents);
-                if (parsed.entries && parsed.entries.length > 0) {
-                    const entry = parsed.entries[Math.floor(Math.random() * parsed.entries.length)];
-                    output.innerHTML = `
-                        <strong>${entry.API}</strong><br>
-                        <em>${entry.Description}</em><br>
-                        <a href="${entry.Link}" target="_blank">Visit API</a><br>
-                        Category: ${entry.Category}
-                    `;
-                } else {
-                    output.innerHTML = 'No public APIs found.';
-                }
-            } else {
-                output.innerHTML = 'No public APIs found.';
-            }
-        })
-        .catch(error => {
-            output.innerHTML = 'Failed to fetch public API info.';
-        });
-}
+	const output = document.getElementById('publicapi-output');
+	output.innerHTML = 'Loading...';
 
+	// publicapis.org is defunct. Using a curated local list from github.com/public-apis/public-apis
+	const apis = [
+		{ API: 'Chuck Norris Facts', Description: 'Hand curated Chuck Norris jokes as JSON', Link: 'https://api.chucknorris.io', Category: 'Entertainment' },
+		{ API: 'Open Brewery DB', Description: 'Breweries, cideries and craft beer bottle shops', Link: 'https://www.openbrewerydb.org', Category: 'Food & Drink' },
+		{ API: 'Dog Facts', Description: 'Random facts about dogs', Link: 'https://kinduff.github.io/dog-api/', Category: 'Animals' },
+		{ API: 'Random Dog', Description: 'Random pictures of dogs', Link: 'https://random.dog/woof.json', Category: 'Animals' },
+		{ API: 'Open Food Facts', Description: 'Food products database', Link: 'https://world.openfoodfacts.org/data', Category: 'Food & Drink' },
+		{ API: 'JokeAPI', Description: 'Programming, miscellaneous and dark jokes', Link: 'https://sv443.net/jokeapi/v2/', Category: 'Games & Comics' },
+		{ API: 'Jikan', Description: 'Unofficial MyAnimeList API', Link: 'https://jikan.moe', Category: 'Anime' },
+		{ API: 'CoinCap', Description: 'Real time cryptocurrency prices', Link: 'https://docs.coincap.io/', Category: 'Cryptocurrency' },
+		{ API: 'Frankfurter', Description: 'Exchange rates, currency conversion and time series', Link: 'https://www.frankfurter.app/docs', Category: 'Currency Exchange' },
+		{ API: 'FreeToGame', Description: 'Free-to-play games database', Link: 'https://www.freetogame.com/api-doc', Category: 'Games & Comics' },
+		{ API: 'Art Institute of Chicago', Description: 'Art collection and metadata', Link: 'https://api.artic.edu/docs/', Category: 'Art & Design' },
+		{ API: 'Genshin Impact', Description: 'Genshin Impact game data', Link: 'https://genshin.dev', Category: 'Games & Comics' },
+		{ API: 'PoetryDB', Description: 'Instant data from a vast poetry collection', Link: 'https://poetrydb.org', Category: 'Books' },
+		{ API: 'Random Useless Facts', Description: 'Random useless but true facts', Link: 'https://uselessfacts.jsph.pl/', Category: 'Entertainment' },
+		{ API: 'Wiktionary', Description: 'Collaborative dictionary data', Link: 'https://en.wiktionary.org/w/api.php', Category: 'Dictionaries' },
+		{ API: 'Open Meteo', Description: 'Free weather API with no key required', Link: 'https://open-meteo.com/', Category: 'Weather' },
+		{ API: 'Dog CEO', Description: 'Random dog images by breed', Link: 'https://dog.ceo/dog-api/', Category: 'Animals' },
+		{ API: 'RandomUser', Description: 'Generate random user data', Link: 'https://randomuser.me/', Category: 'Test Data' },
+		{ API: 'Bored API', Description: 'Suggests random activities to fight boredom', Link: 'https://www.boredapi.com/', Category: 'Development' },
+		{ API: 'IP-API', Description: 'IP geolocation and proxy detection', Link: 'https://ip-api.com/', Category: 'Geocoding' }
+	];
+
+	setTimeout(() => {
+		const entry = apis[Math.floor(Math.random() * apis.length)];
+		output.innerHTML = `
+			<strong>${entry.API}</strong><br>
+			<em>${entry.Description}</em><br>
+			<a href="${entry.Link}" target="_blank">Visit API</a><br>
+			Category: ${entry.Category}
+		`;
+	}, 300);
+}
 
 // Fetch and display a random joke
 function getJoke() {
